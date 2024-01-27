@@ -1,0 +1,15 @@
+---
+const {platforms} = Astro.props;
+---
+<div class="py-10 container text-white">
+<h2>also see in:</h2>
+        <ul>
+            {platforms.map((platform)=>
+            <li>
+                <a class="text-yellow-500 hover:text-yellow-300" href={platform.url}>
+                    <span class={`icon-[#{platform.icon}]`}></span> {platform.title}: @{platform.username}
+                </a>
+            </li>
+            )}
+        </ul>
+    </div>

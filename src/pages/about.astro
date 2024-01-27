@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = "Sobre mi";
+
+const identity = {
+    firstName: "Daniel",
+    country: "Chile",
+    occupation: "Backend dev",
+    hobbies: ["code", "play videogames", "study"],
+};
+
+const skills = [
+    "PHP",
+    "Java",
+    "Ruby on Rails",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Ruby",
+    "Astro",
+    "Writing Docs",
+];
+const primary_dark_color = Astro.props
+const happy = true;
+const finished = false;
+const goal = 3;
+const skill_format = {
+    color: "navy",
+    weight: "bold",
+};
+const skill_color = skill_format.color;
+---
+
+<BaseLayout title={title}>
+    <ul class:list={[
+        "list-inside list-disc",
+        ,
+        primary_dark_color
+      ]}>
+        <li><a href="/posts/post-1/">Post 1</a></li>
+        <li><a href="/posts/post-2/">Post 2</a></li>
+        <li><a href="/posts/post-3/">Post 3</a></li>
+    </ul>
+
+    <p class="py-2 font-bold">Here are a few facts about me:</p>
+    <ul class="list-inside list-disc" >
+        <li>My name is <span class={primary_dark_color}>{identity.firstName}</span>.</li>
+        <li>
+            I live in <span class={primary_dark_color}>{identity.country}</i> and I work as a <span class={primary_dark_color}>{
+                identity.occupation
+            }</span>.
+        </li>
+        {
+            identity.hobbies.length >= 2 && (
+                <li>
+                    Two of my hobbies are: {identity.hobbies[0]}{" "}
+                    and {identity.hobbies[1]}
+                </li>
+            )
+        }
+    </ul>
+    <p><b>My skills are:</b></p>
+    <ul class="list-inside list-disc">
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+  </BaseLayout>
+<!-- 
+  <section class="about bg-slate-200" >
+    <div class="bg-white container shadow-md focus:outline-none focus:ring-0">
+        <h1 class={primary_dark_color}>
+            {title}
+        </h1>
+        <ul class:list={[
+            "list-inside list-disc",
+            ,
+            primary_dark_color
+          ]}>
+            <li><a href="/posts/post-1/">Post 1</a></li>
+            <li><a href="/posts/post-2/">Post 2</a></li>
+            <li><a href="/posts/post-3/">Post 3</a></li>
+        </ul>
+
+        <p class="py-2 font-bold">Here are a few facts about me:</p>
+        <ul class="list-inside list-disc" >
+            <li>My name is <span class={primary_dark_color}>{identity.firstName}</span>.</li>
+            <li>
+                I live in <span class={primary_dark_color}>{identity.country}</i> and I work as a <span class={primary_dark_color}>{
+                    identity.occupation
+                }</span>.
+            </li>
+            {
+                identity.hobbies.length >= 2 && (
+                    <li>
+                        Two of my hobbies are: {identity.hobbies[0]}{" "}
+                        and {identity.hobbies[1]}
+                    </li>
+                )
+            }
+        </ul>
+        <p><b>My skills are:</b></p>
+        <ul class="list-inside list-disc">
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+    </div>
+</section> -->
